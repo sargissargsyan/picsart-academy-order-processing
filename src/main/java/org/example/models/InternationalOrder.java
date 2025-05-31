@@ -1,6 +1,7 @@
 package org.example.models;
 
 public class InternationalOrder extends Order implements Deliverable {
+    private static String vendor = "FedEx";
     public InternationalOrder(Customer customer, double price) {
         super(customer, price);
     }
@@ -10,4 +11,13 @@ public class InternationalOrder extends Order implements Deliverable {
     }
 
 
+    @Override
+    public void printSummery() {
+        super.printSummery();
+        System.out.println("Type: International Order. Delivery Price: AMD" + calculateDeliveryPrice());
+
+    }
+    public static String getVendor() {
+        return vendor;
+    }
 }
