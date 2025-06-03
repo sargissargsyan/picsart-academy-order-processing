@@ -1,6 +1,6 @@
 package org.example.models;
 
-public class Order {
+public class Order implements Comparable<Order> {
     protected Customer customer;
     protected double price;
     public Order(Customer customer) {
@@ -28,4 +28,19 @@ public class Order {
         this.customer = customer;
     }
 
+    @Override
+    public String toString() {
+        return customer + " " + price;
+    }
+
+    @Override
+    public int compareTo(Order o) {
+        if (this.price < o.price) {
+            return -1;
+        } else if (this.price > o.price) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }

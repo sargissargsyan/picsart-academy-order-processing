@@ -63,4 +63,9 @@ public class Customer {
                 + lastName + " " + email + " "
                 + phone + " " + address);
     }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName + " " + email + " " + phone + " " + address;
+    }
 }
