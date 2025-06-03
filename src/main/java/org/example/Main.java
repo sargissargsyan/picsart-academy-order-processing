@@ -27,6 +27,7 @@ public class Main {
         Order order3 = new InternationalOrder(customer, 3400) ;
 
         System.out.println(ExpressOrder.getVendor());
+        System.out.println(ExpressOrder.getVendor());
         Order[] orders = new Order[3];
         orders[0] = order1;
         orders[1] = order2;
