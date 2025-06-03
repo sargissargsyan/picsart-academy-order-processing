@@ -19,7 +19,7 @@ public class Main {
                 "5 Mashtots, Yerevan, Armenia");
         Customer customer = new Customer("Poghos",
                 "Poghosyan",
-                "poghos@gmail.com",
+                "poghos@gmail.com", 
                 "+37477777777",
                 "5 Kievyan, Yerevan, Armenia");
         Order order1 = new ExpressOrder(customer, 1500);
@@ -49,6 +49,10 @@ public class Main {
                 interOrderCount++;
             }
         }
+        System.out.println("Total orders: " + totalOrders);
+        System.out.println("Total express orders: " + expressOrderCount);
+        System.out.println("Total international orders: " + interOrderCount);
+
         System.out.println("Total orders: " + totalOrders);
         System.out.println("Total express orders: " + expressOrderCount);
         System.out.println("Total international orders: " + interOrderCount);
