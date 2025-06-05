@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.exceptions.InvalidPriceException;
 import org.example.models.Customer;
 import org.example.models.ExpressOrder;
 import org.example.models.InternationalOrder;
@@ -7,6 +8,7 @@ import org.example.models.Order;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -31,8 +33,18 @@ public class Main {
         Order order2 = new ExpressOrder(customer, 500);
         Order order3 = new InternationalOrder(customer, 3400) ;
 
+        try {
+            order1.setPrice(-50);
+        } catch (InvalidPriceException e) {
+            System.out.println("Invalid price!");
+        }
         System.out.println(ExpressOrder.getVendor());
-        List<Order> orders = Arrays.asList(order1, order2, order3);
+        LinkedList<Order> orders = new LinkedList<>();
+        orders.add(order1);
+        orders.add(order2);
+        orders.add(order3);
+
+        Collections.synchronizedList(orders);
 
         System.out.println("Before sorting: ");
         System.out.println(orders);

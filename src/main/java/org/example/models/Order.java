@@ -1,5 +1,7 @@
 package org.example.models;
 
+import org.example.exceptions.InvalidPriceException;
+
 public class Order implements Comparable<Order> {
     protected Customer customer;
     protected double price;
@@ -18,7 +20,10 @@ public class Order implements Comparable<Order> {
     public double getPrice() {
         return price;
     }
-    public void setPrice(double price) {
+    public void setPrice(double price) throws InvalidPriceException {
+        if (price < 0 ){
+            throw new InvalidPriceException("Price must be a positive number!");
+        }
         this.price = price;
     }
     public Customer getCustomer() {
